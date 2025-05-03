@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: webapp
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  source:
+    repoURL:  https://github.com/priyam930/Deploy-FlaskApp-CICD.git
+    path: .
+    targetRevision: main
