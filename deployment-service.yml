@@ -6,7 +6,7 @@ metadata:
     app: flask-app
   name: flask-app
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: flask-app
@@ -18,7 +18,7 @@ spec:
         app: flask-app
     spec:
       containers:
-      - image: priyam930/flask-app:v1
+      - image: priyam930/flask-app1:v1
         name: flask-app
 
 ---

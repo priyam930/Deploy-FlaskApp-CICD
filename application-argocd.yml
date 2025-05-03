@@ -1,14 +1,19 @@
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: webapp
+  name: cricket-score-app
+  namespace: argocd
 spec:
   project: default
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default
-
   source:
-    repoURL:  https://github.com/priyam930/Deploy-FlaskApp-CICD.git
+    repoURL: 'https://github.com/priyam930/Deploy-FlaskApp-CICD.git'
+    targetRevision: HEAD
     path: .
-    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
