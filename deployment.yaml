@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: flask-app
+  name: flask-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flask-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: flask-app
+    spec:
+      containers:
+      - image: sayantan2k21/crickbuzz-api-app:6
+        name: flask-app
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app-service
+  namespace: default
+  labels:
+    app: flask-app
+
+spec:
+  type: NodePort
+  selector:
+    app: flask-app
+  ports:
+    - port: 80
+      targetPort: 8080
+      nodePort: 32000
