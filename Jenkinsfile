@@ -73,7 +73,7 @@ pipeline{
 
                         sh """
                             git clone -b main https://${user}:${pass}@github.com/priyam930/Flask_App_Cricbuzz_CD.git
-                            cd Flask_App_CD
+                            cd Flask_App_Cricbuzz_CD
 
                             ls
                             cat deployment.yaml
@@ -84,7 +84,7 @@ pipeline{
                         sh """
                             echo "new shell"
                             echo $pwd
-                            cd Flask_App_CD
+                            cd  Flask_App_Cricbuzz_CD
                             echo $pwd
 
                             ls
