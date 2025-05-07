@@ -18,7 +18,7 @@ spec:
         app: flask-app
     spec:
       containers:
-      - image: sayantan2k21/crickbuzz-api-app:6
+      - image: priyam930/flask-app:v1
         name: flask-app
 
 ---
